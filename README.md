@@ -67,5 +67,5 @@
 
 
 ### Association
-- references :group
-- references :user
+- belongs_to :group
+- belongs_to :user
