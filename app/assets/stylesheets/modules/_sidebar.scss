@@ -4,13 +4,13 @@
   width: 300px;
   height: 100%;
   color: $WhiteColor;
-  .sidebar__header {
+  &__header {
     background-color: $SidebarHeaderColor;
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
     clear: both;
-    .sidebar__header__name {
+    &__name {
       float: left;
       font-weight: bold;
       font-size: 16px;
@@ -30,7 +30,7 @@
       }
     }
   }
-  .sidebar__groups {
+  &__groups {
     padding: 0 20px;
     li {
       margin: 20px 0 40px;
