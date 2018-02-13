@@ -1,0 +1,53 @@
+%body
+  %div.container
+    %div.alert
+      チャットグループが作成されました
+    %div.sidebar
+      %div.sidebar__header
+        %div.sidebar__header__name
+          KodaiTsuchiyaaaaaaaaaaaaaaaaaaaaaaa
+        %ul
+          %li
+            = link_to "" do
+              %i.fa.fa-pencil-square-o.fa-lg.fa-white
+          %li
+            = link_to "" do
+              %i.fa.fa-cog.fa-lg.fa-white
+      %div.sidebar__groups
+        %ul
+          %li
+            %a myroom
+            %p 初メッセージ
+          %li
+            %a test
+            %p 初メッセージ
+    %div.main
+      %div.main__header
+        %div.main__header__groupname__edit
+          Edit
+        %div.main__header__groupname
+          myroommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+        %ul
+          %li Member：
+          %li Kodai Tsuchiya
+      %div.main__messageroom
+        %ul
+          %li
+            %p.main__messageroom__username Kodai Tsuchiyaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            %p.main__messageroom__timestamp 2018/02/05 13:12
+            %p.main__messageroom__message 初投稿です。
+          %li
+            %p.main__messageroom__username Kodai Tsuchiya
+            %p.main__messageroom__timestamp 2018/02/05 13:12
+            %p.main__messageroom__message 初投稿です。
+          %li
+            %p.main__messageroom__username Kodai Tsuchiya
+            %p.main__messageroom__timestamp 2018/02/05 13:12
+            %p.main__messageroom__message 初投稿です。
+      %div.main__inputarea
+        %form
+          %input.main__inputarea__message{:placeholder => "type a message"}
+          %label
+            %i.fa.fa-picture-o.fa-lg
+            %input.main__inputarea__image{:type => "file"}
+          %input.main__inputarea__submit{:value => "Send"}
