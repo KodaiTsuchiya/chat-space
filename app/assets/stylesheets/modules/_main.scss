@@ -35,6 +35,7 @@
     height: calc(100% - 190px);
     background-color: $WhiteGrey;
     padding: 0 40px;
+    overflow: scroll;
     ul {
       padding-top: 46px;
     }
@@ -58,6 +59,10 @@
       font-size: 14px;
       color: $DarkGreyText;
       padding-top: 10px;
+
+      img {
+        width: 20%;
+      }
     }
   }
   &__inputarea {
