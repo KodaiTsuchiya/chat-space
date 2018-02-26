@@ -17,4 +17,4 @@
 .byebug_history
 
 # Ignore other unneeded files.
-/public/message
+/public/message/*
