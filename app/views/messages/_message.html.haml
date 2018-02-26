@@ -1,0 +1,9 @@
+%li
+  %p.main__messageroom__username
+    = message.user.name
+  %p.main__messageroom__timestamp
+    = message.created_at
+  %p.main__messageroom__message
+    - if message.body.present?
+      = message.body
+    = image_tag message.image if message.image.present?
