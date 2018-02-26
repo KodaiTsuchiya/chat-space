@@ -1,53 +1,25 @@
 %body
   %div.container
-    %div.alert
-      チャットグループが作成されました
-    %div.sidebar
-      %div.sidebar__header
-        %div.sidebar__header__name
-          KodaiTsuchiyaaaaaaaaaaaaaaaaaaaaaaa
-        %ul
-          %li
-            = link_to "" do
-              %i.fa.fa-pencil-square-o.fa-lg.fa-white
-          %li
-            = link_to "" do
-              %i.fa.fa-cog.fa-lg.fa-white
-      %div.sidebar__groups
-        %ul
-          %li
-            %a myroom
-            %p 初メッセージ
-          %li
-            %a test
-            %p 初メッセージ
+    = render partial: 'shared/side_bar'
     %div.main
       %div.main__header
         %div.main__header__groupname__edit
           Edit
+          / = link_to 'Edit', edit_group_path()
         %div.main__header__groupname
-          myroommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+          = @group.name
         %ul
           %li Member：
-          %li Kodai Tsuchiya
+          - @group.users.each do |user|
+            %li
+              = user.name + "　"
       %div.main__messageroom
         %ul
-          %li
-            %p.main__messageroom__username Kodai Tsuchiyaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            %p.main__messageroom__timestamp 2018/02/05 13:12
-            %p.main__messageroom__message 初投稿です。
-          %li
-            %p.main__messageroom__username Kodai Tsuchiya
-            %p.main__messageroom__timestamp 2018/02/05 13:12
-            %p.main__messageroom__message 初投稿です。
-          %li
-            %p.main__messageroom__username Kodai Tsuchiya
-            %p.main__messageroom__timestamp 2018/02/05 13:12
-            %p.main__messageroom__message 初投稿です。
+          = render @messages
       %div.main__inputarea
-        %form
-          %input.main__inputarea__message{:placeholder => "type a message"}
-          %label
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, class: 'main__inputarea__message', placeholder: 'type a message'
+          = f.label :image do
             %i.fa.fa-picture-o.fa-lg
-            %input.main__inputarea__image{:type => "file"}
-          %input.main__inputarea__submit{:value => "Send"}
+            = f.file_field :image, class: 'main__inputarea__image'
+          = f.submit 'Send', class: 'main__inputarea__submit'
