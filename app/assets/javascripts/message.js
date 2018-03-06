@@ -1,10 +1,14 @@
 $(function(){
   var messageList = $(".main__messageroom ul");
+  function refresh(){
+    $(".main__inputarea__submit").prop('disabled', false);
+  }
   function postMessage(message){
     var html = `<li>
                   <p class='main__messageroom__username'>${message.name}</p>
                   <p class='main__messageroom__timestamp'>${message.created_at}</p>
                   <p class='main__messageroom__message'>${message.body}</p>
+                  ${ message.image.url == null ? "" : `<p class='main__messageroom__message'><img src="${message.image.url}"></p>`}
                 </li>`
     messageList.append(html);
   }
@@ -24,9 +28,12 @@ $(function(){
       postMessage(data);
       $(".main__inputarea__message").val("")
       $(".main__messageroom").animate({scrollTop: $(".main__messageroom")[0].scrollHeight},'swing')
+      refresh();
     })
     .fail(function(){
       alert("投稿に失敗しました。");
+      refresh();
     })
+
   })
 });
