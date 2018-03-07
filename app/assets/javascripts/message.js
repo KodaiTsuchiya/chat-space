@@ -8,7 +8,7 @@ $(function(){
                   <p class='main__messageroom__username'>${message.name}</p>
                   <p class='main__messageroom__timestamp'>${message.created_at}</p>
                   <p class='main__messageroom__message'>${message.body}</p>
-                  ${ message.image.url == null ? "" : `<p class='main__messageroom__message'><img src="${message.image.url}"></p>`}
+                  ${ message.image == null ? "" : `<p class='main__messageroom__message'><img src="${message.image}"></p>`}
                 </li>`
     messageList.append(html);
   }
@@ -26,7 +26,7 @@ $(function(){
     })
     .done(function(data){
       postMessage(data);
-      $(".main__inputarea__message").val("")
+      $(".main__inputarea__message, .main__inputarea__image").val("")
       $(".main__messageroom").animate({scrollTop: $(".main__messageroom")[0].scrollHeight},'swing')
       refresh();
     })
@@ -34,6 +34,5 @@ $(function(){
       alert("投稿に失敗しました。");
       refresh();
     })
-
   })
 });
