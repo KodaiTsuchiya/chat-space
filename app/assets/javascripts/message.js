@@ -25,7 +25,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data);
       postMessage(data);
       $(".main__inputarea__message, .main__inputarea__image").val("")
       $(".main__messageroom").animate({scrollTop: $(".main__messageroom")[0].scrollHeight},'swing')

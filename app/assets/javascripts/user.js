@@ -44,14 +44,14 @@ $(function(){
     preInput = input;
   })
 
-  $(document).on("click", ".user-search-add", function(){
+  $("#user-search-result").on("click", ".user-search-add", function(){
     var user_id = $(this).data("user-id");
     var user_name = $(this).data("user-name");
     $(this).parent().remove();
     addGroupUser(user_id, user_name);
   })
 
-  $(document).on("click", ".user-search-remove", function(){
+  $("#chat-group-users").on("click", ".user-search-remove", function(){
     $(this).parent().remove();
   })
 })
