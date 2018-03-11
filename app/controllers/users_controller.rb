@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      # jsonでリクエストがあった時に@usersをjsonで返却するようにする
+      format.json { render json: @users }
+    end
+  end
+
   def edit
 
   end
