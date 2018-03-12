@@ -19,6 +19,7 @@ $(function(){
 
   $("#user-search-field").on("keyup", function(e){
     e.preventDefault();
+    console.log("発火");
     var input = $("#user-search-field").val();
     if (preInput !== input && input.length !== 0) {
       $.ajax({
