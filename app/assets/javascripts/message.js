@@ -14,11 +14,11 @@ $(function(){
   }
   function getMessages(){
     var url = $(this).attr("action");
-    var lastMessage = $(".main__messageroom li:last").data("id");
+    var lastMessageId = $(".main__messageroom li:last").data("id");
     $.ajax({
       type: "GET",
       url: url,
-      data: {latestId : lastMessage},
+      data: {id : lastMessageId},
       dataType: "json"
     })
     .done(function(messages){
