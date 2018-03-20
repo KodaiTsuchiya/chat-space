@@ -60,8 +60,8 @@ $(function(){
   setInterval(startTimer,5000);
 
   function startTimer(){
-    currentUrl = location.href;
-    if ( currentUrl.match("http://localhost:3000/groups/.+/messages") ) {
+    currentPath = location.pathname;
+    if ( currentPath.match("/groups/.+/messages") ) {
       getMessages();
     }
   }
