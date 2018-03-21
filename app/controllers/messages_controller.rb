@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     respond_to do |format|
       format.html{ @messages = @group.messages.includes(:user) }
-      format.json{ @latestMessage = @group.messages.order('created_at ASC').where("id > ?", params[:id]).includes(:user) }
+      format.json{ @latestMessages = @group.messages.order('created_at ASC').where("id > ?", params[:id]).includes(:user) }
     end
   end
 
