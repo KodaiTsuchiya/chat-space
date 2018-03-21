@@ -3,14 +3,17 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user)
+    respond_to do |format|
+      format.html{ @messages = @group.messages.includes(:user) }
+      format.json{ @latestMessages = @group.messages.order('created_at ASC').where("id > ?", params[:id]).includes(:user) }
+    end
   end
 
   def create
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
-        format.html { redirect_to  group_messages_path(@group), notice: 'メッセージが送信されました' }
+        format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
         format.json
       end
 
