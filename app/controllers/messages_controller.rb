@@ -3,10 +3,9 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user)
     respond_to do |format|
-      format.html
-      format.json{ @latestMessage = @messages.order('created_at ASC').where("id > ?", params[:id]).includes(:user) }
+      format.html{ @messages = @group.messages.includes(:user) }
+      format.json{ @latestMessage = @group.messages.order('created_at ASC').where("id > ?", params[:id]).includes(:user) }
     end
   end
 
