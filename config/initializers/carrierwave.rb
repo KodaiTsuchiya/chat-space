@@ -3,6 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+# if ! Rails.env.test?
   config.storage = :fog
   config.fog_credentials = {
     provider: 'AWS',
@@ -13,4 +14,5 @@ CarrierWave.configure do |config|
 
   config.fog_directory  = 'tsuchiya-chat-space'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/tsuchiya-chat-space'
+# end
 end
